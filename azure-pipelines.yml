@@ -10,17 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- task: SSH@0
-  inputs:
-    sshEndpoint: root@118.31.35.1
-    runOptions: 'commands'
-    commands: 'whaomi'
-    readyTimeout: '20000'
+    #!/bin/bash
+    for ((i=1; i<=100000; i++))
+    do
+        echo "this is a test message,  with index of $i"
+    done
+  displayName: 'echo'
